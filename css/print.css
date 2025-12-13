@@ -1,0 +1,101 @@
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+   @media print {
+    /* Hide elements */
+    #navbar,
+    #progress-bar,
+    .scroll-indicator,
+    .btn-print,
+    .back-to-top,
+    .footer,
+    .social-icons {
+        display: none !important;
+    }
+    
+    /* Reset backgrounds */
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .section.bg-gradient {
+        background: white;
+        color: black;
+    }
+    
+    .hero {
+        background: white;
+        height: auto;
+        min-height: auto;
+        page-break-after: always;
+    }
+    
+    .hero-overlay {
+        display: none;
+    }
+    
+    .hero-content {
+        color: black;
+    }
+    
+    .hero-title,
+    .hero-subtitle,
+    .meta-item {
+        color: black;
+    }
+    
+    /* Adjust text colors */
+    .text-white {
+        color: black !important;
+    }
+    
+    .section-title,
+    h1, h2, h3, h4, h5, h6 {
+        color: black;
+    }
+    
+    /* Page breaks */
+    .section {
+        page-break-inside: avoid;
+    }
+    
+    /* Adjust spacing */
+    .section {
+        padding: 20px 0;
+    }
+    
+    /* Cards */
+    .stat-card,
+    .feature-card,
+    .channel-card,
+    .kpi-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+    
+    /* Remove hover effects */
+    * {
+        transition: none !important;
+    }
+    
+    /* Links */
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    /* Show URLs after links */
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+    
+    /* Charts */
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
