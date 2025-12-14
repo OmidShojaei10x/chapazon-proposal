@@ -38,6 +38,47 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     // ========================================
+    // 2.5. MOBILE MENU TOGGLE
+    // ========================================
+    
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navOverlay = document.getElementById('nav-overlay');
+    
+    const toggleMenu = () => {
+        const isActive = navMenu.classList.contains('active');
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        if (navOverlay) {
+            navOverlay.classList.toggle('active');
+        }
+        document.body.style.overflow = !isActive ? 'hidden' : '';
+    };
+    
+    const closeMenu = () => {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        if (navOverlay) {
+            navOverlay.classList.remove('active');
+        }
+        document.body.style.overflow = '';
+    };
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', toggleMenu);
+        
+        if (navOverlay) {
+            navOverlay.addEventListener('click', closeMenu);
+        }
+        
+        // بستن منو با کلیک روی لینک‌ها
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    }
+    
+    
+    // ========================================
     // 3. SMOOTH SCROLL
     // ========================================
     
@@ -58,6 +99,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                // بستن منوی موبایل بعد از کلیک
+                if (navMenu && navMenu.classList.contains('active')) {
+                    closeMenu();
+                }
             }
         });
     });

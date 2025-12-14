@@ -37,7 +37,7 @@
         <div class="container">
             <div class="nav-content">
                 <img src="assets/images/yektanet-logo.svg" alt="Yektanet Logo" class="nav-logo">
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="nav-menu">
                     <li><a href="#hero">صفحه اصلی</a></li>
                     <li><a href="#opportunity">نمایشگاه</a></li>
                     <li><a href="#strategy">استراتژی</a></li>
@@ -46,11 +46,19 @@
                     <li><a href="#kpis">شاخص‌ها</a></li>
                     <li><a href="#contact">تماس</a></li>
                 </ul>
-                <button class="btn-print" onclick="window.print()">
-                    <i class="fas fa-print"></i> چاپ پروپوزال
-                </button>
+                <div class="nav-actions">
+                    <button class="btn-print" onclick="window.print()">
+                        <i class="fas fa-print"></i> <span class="btn-print-text">چاپ پروپوزال</span>
+                    </button>
+                    <button class="nav-toggle" id="nav-toggle" aria-label="منوی اصلی">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
+        <div class="nav-overlay" id="nav-overlay"></div>
     </nav>
 
     <!-- Hero Section -->
